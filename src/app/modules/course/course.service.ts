@@ -9,6 +9,12 @@ import { asyncForEach } from "../../../shared/utils";
 import { ICourseCreateData, ICourseFilterRequest, IPrerequisiteCourseRequest } from "./corse.interface";
 import { courseSearchableFields } from "./course.constants";
 
+
+
+
+
+
+
 const insertIntoDB = async (data: ICourseCreateData): Promise<any> => {
     const { preRequisiteCourses, ...courseData } = data;
 
@@ -67,6 +73,8 @@ const insertIntoDB = async (data: ICourseCreateData): Promise<any> => {
 
     throw new ApiError(httpStatus.BAD_REQUEST, "Unable to create course")
 }
+
+
 
 
 const getAllFromDB = async (
@@ -139,6 +147,9 @@ const getAllFromDB = async (
     };
 };
 
+
+
+
 const getByIdFromDB = async (id: string): Promise<Course | null> => {
     const result = await prisma.course.findUnique({
         where: {
@@ -159,6 +170,8 @@ const getByIdFromDB = async (id: string): Promise<Course | null> => {
     });
     return result;
 };
+
+
 
 
 const updateOneInDB = async (
@@ -222,6 +235,8 @@ const updateOneInDB = async (
         return result;
     })
 
+
+
     const responseData = await prisma.course.findUnique({
         where: {
             id
@@ -242,6 +257,10 @@ const updateOneInDB = async (
 
     return responseData
 }
+
+
+
+
 
 const deleteByIdFromDB = async (id: string): Promise<Course> => {
     await prisma.courseToPrerequisite.deleteMany({
@@ -265,6 +284,10 @@ const deleteByIdFromDB = async (id: string): Promise<Course> => {
     return result;
 };
 
+
+
+
+
 const assignFaculies = async (
     id: string,
     payload: string[]
@@ -287,6 +310,8 @@ const assignFaculies = async (
 
     return assignFacultiesData;
 }
+
+
 
 const removeFaculties = async (
     id: string,
@@ -312,6 +337,10 @@ const removeFaculties = async (
 
     return assignFacultiesData
 }
+
+
+
+
 
 export const CourseService = {
     insertIntoDB,
