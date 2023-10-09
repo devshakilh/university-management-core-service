@@ -12,7 +12,7 @@ router.get('/:id', CourseController.getByIdFromDB);
 router.post(
     '/',
     validateRequest(CourseValidation.create),
-    // auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+    auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
     CourseController.insertIntoDB
 );
 
@@ -34,7 +34,7 @@ router.delete(
 router.post(
     "/:id/assign-faculties",
     validateRequest(CourseValidation.assignOrRemoveFaculties),
-    // auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+    auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
     CourseController.assignFaculies)
 
 router.delete(

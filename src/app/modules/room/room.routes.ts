@@ -13,7 +13,7 @@ router.get('/:id', RoomController.getByIdFromDB);
 router.post(
     '/',
     validateRequest(RoomValidation.create),
-    // auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+    auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
     RoomController.insertIntoDB
 );
 
