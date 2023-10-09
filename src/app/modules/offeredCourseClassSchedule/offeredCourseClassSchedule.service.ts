@@ -7,6 +7,9 @@ import { offeredCourseClassScheduleRelationalFields, offeredCourseClassScheduleR
 import { IOfferedCourseClassScheduleFilterRequiest } from "./offeredCourseClassSchedule.interface";
 import { OfferedCourseClassScheduleUtils } from "./offeredCourseClassSchedule.utils";
 
+
+
+
 const insertIntoDB = async (data: OfferedCourseClassSchedule): Promise<OfferedCourseClassSchedule> => {
     await OfferedCourseClassScheduleUtils.checkRoomAvailable(data)
     await OfferedCourseClassScheduleUtils.checkFacultyAvailable(data)
