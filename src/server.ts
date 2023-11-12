@@ -24,6 +24,7 @@ async function bootstrap() {
     errorlogger.error(error);
     exitHandler();
   };
+  
 
   process.on('uncaughtException', unexpectedErrorHandler);
   process.on('unhandledRejection', unexpectedErrorHandler);
@@ -35,5 +36,6 @@ async function bootstrap() {
     }
   });
 }
+
 
 bootstrap();
